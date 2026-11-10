@@ -1,0 +1,447 @@
+{
+  "url": "https://api.carbonmapper.org/api/v1/openapi.json",
+  "retrieved_date": "2026-10-30",
+  "sha256": "e21f27a6deab299da15fc21bab1096fbf6eb25aab056344bbf4261a10a1539ed",
+  "endpoint": "/api/v1/catalog/plumes/annotated",
+  "parameters": [
+    {
+      "in": "query",
+      "name": "plume_ids",
+      "schema": {
+        "items": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "plume_names",
+      "schema": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "scene_name",
+      "schema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "scene_id",
+      "schema": {
+        "format": "uuid",
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "scene_ids",
+      "schema": {
+        "items": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "search",
+      "schema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "emission_min",
+      "schema": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "emission_max",
+      "schema": {
+        "type": "integer"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "wind_speed_min",
+      "schema": {
+        "ge": 0,
+        "type": "integer"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "wind_speed_max",
+      "schema": {
+        "ge": 0,
+        "type": "integer"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "sectors",
+      "schema": {
+        "items": {
+          "enum": [
+            "1B2",
+            "6A",
+            "6B",
+            "4B",
+            "1B1a",
+            "1A1",
+            "other",
+            "1A2",
+            "NULL",
+            "NA"
+          ],
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "plume_gas",
+      "schema": {
+        "enum": [
+          "CO2",
+          "CH4"
+        ],
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "instrument",
+      "schema": {
+        "allOf": [
+          {
+            "enum": [
+              "GAO",
+              "ang",
+              "av3",
+              "emi",
+              "tan",
+              "ssc"
+            ],
+            "type": "string"
+          }
+        ]
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "instruments",
+      "schema": {
+        "items": {
+          "enum": [
+            "GAO",
+            "ang",
+            "av3",
+            "emi",
+            "tan",
+            "ssc"
+          ],
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "platform",
+      "schema": {
+        "allOf": [
+          {
+            "enum": [
+              "ang",
+              "av3",
+              "gao",
+              "iss",
+              "tan-1",
+              "tan-2"
+            ],
+            "type": "string"
+          }
+        ]
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "qualities",
+      "schema": {
+        "items": {
+          "enum": [
+            "good",
+            "questionable",
+            "bad"
+          ],
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "intersects",
+      "schema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "has_phme",
+      "schema": {
+        "type": "boolean"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "created_at",
+      "schema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "publish_ready_at",
+      "schema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "published_at_datetime",
+      "schema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "aoi_id",
+      "schema": {
+        "format": "uuid",
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "collection_version_l3",
+      "schema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "collection_version_l4",
+      "schema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "admin_area_id",
+      "schema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "modified_at",
+      "schema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "datetime",
+      "schema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "source_name",
+      "schema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "limit",
+      "schema": {
+        "default": 10,
+        "type": "integer"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "offset",
+      "schema": {
+        "default": 0,
+        "type": "integer"
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "bbox",
+      "schema": {
+        "anyOf": [
+          {
+            "maxItems": 4,
+            "minItems": 4,
+            "prefixItems": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "number"
+              }
+            ],
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "status",
+      "schema": {
+        "anyOf": [
+          {
+            "enum": [
+              "not_deleted",
+              "published",
+              "publish_ready",
+              "publish_delayed",
+              "valid",
+              "deleted",
+              "hidden",
+              "all"
+            ],
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "required": false
+    },
+    {
+      "in": "query",
+      "name": "sort",
+      "schema": {
+        "default": "desc",
+        "enum": [
+          "asc",
+          "desc",
+          "emissions_desc",
+          "emissions_asc",
+          "published_desc",
+          "published_asc"
+        ],
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "response_schema": {
+    "properties": {
+      "bbox_count": {
+        "type": "integer"
+      },
+      "total_count": {
+        "type": "integer"
+      },
+      "limit": {
+        "type": "integer"
+      },
+      "offset": {
+        "type": "integer"
+      },
+      "items": {
+        "items": {
+          "$ref": "#/components/schemas/PlumeAnnotatedOut"
+        },
+        "type": "array"
+      },
+      "nearby_items": {
+        "items": {
+          "$ref": "#/components/schemas/PlumeAnnotatedOut"
+        },
+        "type": "array"
+      },
+      "serialization_error_count": {
+        "anyOf": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "required": [
+      "bbox_count",
+      "total_count",
+      "limit",
+      "offset",
+      "items",
+      "nearby_items"
+    ],
+    "type": "object"
+  }
+}

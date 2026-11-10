@@ -1,0 +1,25 @@
+{
+  "request_number": 22,
+  "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+  "query": {
+    "plume_gas": "CH4",
+    "status": "published",
+    "instruments": [
+      "tan",
+      "emi"
+    ],
+    "sort": "asc",
+    "limit": 1000,
+    "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+    "modified_at": "../2026-11-05T16:51:44.059908Z",
+    "offset": 21000
+  },
+  "requested_at_utc": "2026-11-05T16:56:27.543980Z",
+  "attempt": 1,
+  "status": 200,
+  "file": "response_00022.json.gz",
+  "bytes": 1387001,
+  "sha256": "ddce4aa4881381f89d10f7311840bd72fcdec70df29ec9bce2097d18cc3accc9",
+  "stored_sha256": "1e8561dc6dd686e99b9cce484557dbb799db1c4fe3879548f504d5f46d22646a",
+  "duration_seconds": 11.256
+}

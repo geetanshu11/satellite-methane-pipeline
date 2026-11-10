@@ -1,0 +1,78 @@
+{
+  "archive_version": 2,
+  "run_id": "20261105T165646407474Z_6ecd1b98",
+  "scope_id": "f4eb34e30f15fa99",
+  "scope": {
+    "start_date": "2022-01-01",
+    "end_date": null,
+    "bbox": null,
+    "instruments": [
+      "emi",
+      "tan"
+    ],
+    "gas": "CH4",
+    "status": "published",
+    "contract": "2",
+    "h3_resolution": 8
+  },
+  "mode": "incremental",
+  "cutoff_utc": "2026-11-05T16:56:46.407462Z",
+  "lower_modified_utc": "2026-11-03T16:51:44.059908Z",
+  "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+  "query": {
+    "plume_gas": "CH4",
+    "status": "published",
+    "instruments": [
+      "tan",
+      "emi"
+    ],
+    "sort": "asc",
+    "limit": 1000,
+    "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:56:46.407462Z",
+    "modified_at": "2026-11-03T16:51:44.059908Z/2026-11-05T16:56:46.407462Z"
+  },
+  "complete": true,
+  "pages": [
+    {
+      "request_number": 1,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:56:46.407462Z",
+        "modified_at": "2026-11-03T16:51:44.059908Z/2026-11-05T16:56:46.407462Z",
+        "offset": 0
+      },
+      "requested_at_utc": "2026-11-05T16:56:46.448619Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00001.json.gz",
+      "bytes": 544040,
+      "sha256": "58dbd695ff7123cc5ca9fabcf23c40134163b3f38823c5d87f9a47ca8c5f66d6",
+      "stored_sha256": "8d478e92b485110f88051768c9c12d3cd43d34cd41477b72ea6eca5e2a5feeea",
+      "duration_seconds": 4.98,
+      "offset": 0,
+      "rows": 129,
+      "kind": "main"
+    }
+  ],
+  "source": "Carbon Mapper",
+  "terms": "https://carbonmapper.org/terms",
+  "confirmed_absent": [],
+  "expected_rows": 129,
+  "rows_archived": 129,
+  "next_offset": 129,
+  "main_expected_rows": 129,
+  "finished_at_utc": "2026-11-05T16:56:51.436594Z",
+  "api_metrics": {
+    "api_requests": 1,
+    "api_failures": 0,
+    "api_retries": 0
+  }
+}

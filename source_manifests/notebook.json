@@ -1,0 +1,29 @@
+{
+  "input_notebook": "notebooks/legacy/Satellite_Methane_Data_Platform.ipynb",
+  "sha256": "ca669bcb797c67775e941345a9437b4d00254fba18a1fe9e08bf15111b95e8bb",
+  "cells": 39,
+  "outputs_present": false,
+  "extracted_module_sha256": "740cca088dd07f5ff3c7420c7c225f7167ce33b18de0bf1644a42ef6d2d72586",
+  "reused_functions": {
+    "config.py": [
+      "Config"
+    ],
+    "normalize.py": [
+      "stable_value",
+      "number",
+      "normalize"
+    ],
+    "warehouse.py": [
+      "build_models",
+      "warehouse_checks"
+    ],
+    "reporting.py": [
+      "export_products"
+    ],
+    "workspace.py": [
+      "safe_restore",
+      "make_archive",
+      "copy_verified"
+    ]
+  }
+}

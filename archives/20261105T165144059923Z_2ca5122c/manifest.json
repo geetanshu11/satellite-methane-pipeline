@@ -1,0 +1,666 @@
+{
+  "archive_version": 2,
+  "run_id": "20261105T165144059923Z_2ca5122c",
+  "scope_id": "f4eb34e30f15fa99",
+  "scope": {
+    "start_date": "2022-01-01",
+    "end_date": null,
+    "bbox": null,
+    "instruments": [
+      "emi",
+      "tan"
+    ],
+    "gas": "CH4",
+    "status": "published",
+    "contract": "2",
+    "h3_resolution": 8
+  },
+  "mode": "full",
+  "cutoff_utc": "2026-11-05T16:51:44.059908Z",
+  "lower_modified_utc": null,
+  "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+  "query": {
+    "plume_gas": "CH4",
+    "status": "published",
+    "instruments": [
+      "tan",
+      "emi"
+    ],
+    "sort": "asc",
+    "limit": 1000,
+    "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+    "modified_at": "../2026-11-05T16:51:44.059908Z"
+  },
+  "complete": true,
+  "pages": [
+    {
+      "request_number": 1,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 0
+      },
+      "requested_at_utc": "2026-11-05T16:51:44.128841Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00001.json.gz",
+      "bytes": 4118987,
+      "sha256": "302a2c48a47c8f4be4a1398fb49e52bad7379b772ef6ffccce4e79476ef50cd7",
+      "stored_sha256": "a799db48c4ca2c2549db8a0fe4b44f631eafa30ebf4c96c49ea5c23467e2dcf6",
+      "duration_seconds": 14.701,
+      "offset": 0,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 2,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 1000
+      },
+      "requested_at_utc": "2026-11-05T16:51:59.205745Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00002.json.gz",
+      "bytes": 4121209,
+      "sha256": "c4d42879d3870c8f929421d43bfc832502e64d6c03bed964b202bd861bcdf1ba",
+      "stored_sha256": "6704d6dacc111dd0928694a7ee094c0806d5a9033b3f4447729abeae639ac4bc",
+      "duration_seconds": 12.578,
+      "offset": 1000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 3,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 2000
+      },
+      "requested_at_utc": "2026-11-05T16:52:12.157815Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00003.json.gz",
+      "bytes": 4125008,
+      "sha256": "814350fc024cb41b49e43c688f26dade99e3f3049748bb58ee97671eb468abe9",
+      "stored_sha256": "612091772a328d39ecf0bd9bcf31e1045b8438c67679c9a664e91e4666af1208",
+      "duration_seconds": 9.106,
+      "offset": 2000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 4,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 3000
+      },
+      "requested_at_utc": "2026-11-05T16:52:21.637687Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00004.json.gz",
+      "bytes": 4177324,
+      "sha256": "bf4a0456a47313beebb7d12f32296eeb75646429d478db43fa26be95aad35910",
+      "stored_sha256": "ce2a0dd06a00b4e1328adea0ec21986796322fc82520bfa6717d349c2ca3c81d",
+      "duration_seconds": 12.783,
+      "offset": 3000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 5,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 4000
+      },
+      "requested_at_utc": "2026-11-05T16:52:34.814155Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00005.json.gz",
+      "bytes": 4182699,
+      "sha256": "888aa7b22099c2bbc43c5acddcba709b213081d03f97e2a0a786fbb4a2ad0b26",
+      "stored_sha256": "1bd5f287583fafc958870eb1e2d6a7c6c0312afdfd068d0c3c8963dbd422458a",
+      "duration_seconds": 10.243,
+      "offset": 4000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 6,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 5000
+      },
+      "requested_at_utc": "2026-11-05T16:52:45.429650Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00006.json.gz",
+      "bytes": 4200015,
+      "sha256": "c011f4847196539a9d5483e2c029939ed8d4def12fa9160a9995abf269d2c73b",
+      "stored_sha256": "c9055e25f454bbb020753c3c49ef5c8a4b720fbab391db296fc3589cfabff1ce",
+      "duration_seconds": 13.696,
+      "offset": 5000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 7,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 6000
+      },
+      "requested_at_utc": "2026-11-05T16:52:59.498502Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00007.json.gz",
+      "bytes": 4198189,
+      "sha256": "010bc20688f202db9bfb07143195865e1eb689ff092269f1920df93687c8bbb8",
+      "stored_sha256": "efc958ea219b3f64d18f618cf9b01b16da36df247c74a306f4f985169929aada",
+      "duration_seconds": 10.012,
+      "offset": 6000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 8,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 7000
+      },
+      "requested_at_utc": "2026-11-05T16:53:09.884131Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00008.json.gz",
+      "bytes": 4176657,
+      "sha256": "86953f95b8f56124310a4a82d157384162757749e5a6182eef31e628cd5e9e25",
+      "stored_sha256": "587db94dd4b011771524ea71720921f287793ea7635a56775a9b5993d1bb997b",
+      "duration_seconds": 10.886,
+      "offset": 7000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 9,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 8000
+      },
+      "requested_at_utc": "2026-11-05T16:53:21.145111Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00009.json.gz",
+      "bytes": 4192926,
+      "sha256": "8282875b3cd833e55ff1d0bd7ea440608ebe9da261207a1a9f320353de6d8f15",
+      "stored_sha256": "3dc3473d993c40647ba5b53f3474bc59a40f7299440b4632f9a580a58cf3c071",
+      "duration_seconds": 13.463,
+      "offset": 8000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 10,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 9000
+      },
+      "requested_at_utc": "2026-11-05T16:53:34.985823Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00010.json.gz",
+      "bytes": 4193785,
+      "sha256": "ad1942161f729629accbfb20f755eba8424da650b9a69b943bde6331b46fe2a6",
+      "stored_sha256": "ac58cc450854c404b61733c77010cfd15702c65f682d898a60f53ae81b45e46c",
+      "duration_seconds": 11.11,
+      "offset": 9000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 11,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 10000
+      },
+      "requested_at_utc": "2026-11-05T16:53:46.482736Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00011.json.gz",
+      "bytes": 4192021,
+      "sha256": "cdc513069196e65e6f4453f3aadb6bfd63469efdf3379723023b7b3e7b3cd8d6",
+      "stored_sha256": "9818ce30ce70448849ae5cb184b5f967b7016ed09c3d42452663d35e4dc8b34f",
+      "duration_seconds": 10.505,
+      "offset": 10000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 12,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 11000
+      },
+      "requested_at_utc": "2026-11-05T16:53:57.361029Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00012.json.gz",
+      "bytes": 4197815,
+      "sha256": "e3a543db91e4b519022ea4ea069d6127b43c1a2cc203be0816d776ddbafceac8",
+      "stored_sha256": "f2d7acf668ae453c55c256212c913895a43a1ec928eb752e054744c1405ba139",
+      "duration_seconds": 10.561,
+      "offset": 11000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 13,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 12000
+      },
+      "requested_at_utc": "2026-11-05T16:54:08.310004Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00013.json.gz",
+      "bytes": 4213029,
+      "sha256": "994318ee217bf38651110c34f498c14d3e297efa8b7201c6ff64dc3dfff0dd71",
+      "stored_sha256": "a453dcf4e96d098b63fd3c5aa78d1a8eae9c753da57560dfc46e036e5b345d0b",
+      "duration_seconds": 14.118,
+      "offset": 12000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 14,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 13000
+      },
+      "requested_at_utc": "2026-11-05T16:54:22.806062Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00014.json.gz",
+      "bytes": 4211994,
+      "sha256": "8703a352a89a5a193b9e8585c3cb772b520ba70e46a83e983414bd820fdba198",
+      "stored_sha256": "020b15bc09406080cb468a534c9fbd23d3ae1e0ac713b97b1f88b6f359f6b935",
+      "duration_seconds": 14.712,
+      "offset": 13000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 15,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 14000
+      },
+      "requested_at_utc": "2026-11-05T16:54:37.903576Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00015.json.gz",
+      "bytes": 4210890,
+      "sha256": "9547957909d55e97ff51a3bcd5dd6c8dd8d3472d610d869558f087bec81b7c76",
+      "stored_sha256": "24980c98ce5cd21e2eb1b4f7ad045bcdcc6d87bb594fabc3b2d37e8462c54884",
+      "duration_seconds": 13.738,
+      "offset": 14000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 16,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 15000
+      },
+      "requested_at_utc": "2026-11-05T16:54:52.014940Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00016.json.gz",
+      "bytes": 4210626,
+      "sha256": "2ea27e09c40912057bf41713aa7bf561b194f0d2dbed8f9b2fee9659d1aa62de",
+      "stored_sha256": "d38e9626f3c5c5ff7ceb36ecfe9591e16bd957976f9fb1e90996a40dd23d3c89",
+      "duration_seconds": 14.902,
+      "offset": 15000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 17,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 16000
+      },
+      "requested_at_utc": "2026-11-05T16:55:07.293588Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00017.json.gz",
+      "bytes": 4212272,
+      "sha256": "de63946394920a51ba32012b7d43b267c92d8656ad5bbf1f7f7d46644d1041ab",
+      "stored_sha256": "0870cc29d2d4a3833d01f241927b237fd9caad81167832429ea52b8b1aa92e1b",
+      "duration_seconds": 14.964,
+      "offset": 16000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 18,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 17000
+      },
+      "requested_at_utc": "2026-11-05T16:55:22.632126Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00018.json.gz",
+      "bytes": 4213154,
+      "sha256": "97bb86e9f3f27e4b04ae9c393e8c1e6fff8d016accb8f630423da94159483a76",
+      "stored_sha256": "d96f9e4762a942429731ea932bfc0d02038c7c92fa496a6e2d6edc614e292cb0",
+      "duration_seconds": 17.27,
+      "offset": 17000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 19,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 18000
+      },
+      "requested_at_utc": "2026-11-05T16:55:40.277482Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00019.json.gz",
+      "bytes": 4213279,
+      "sha256": "6fde13af551b2af9cc2b828951f95592cb8e92e47d5804e6961a1170142b5408",
+      "stored_sha256": "1d5f9d2c6d26f7b1a966f32daa6e4ef29330c7e25456f9b44393dc1267f9cf4b",
+      "duration_seconds": 15.884,
+      "offset": 18000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 20,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 19000
+      },
+      "requested_at_utc": "2026-11-05T16:55:56.541724Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00020.json.gz",
+      "bytes": 4213191,
+      "sha256": "a0975c52f156d1e50ef8e0d777c9c720e9222877b6645ea08786e888f54fd7eb",
+      "stored_sha256": "54a4fb79396d0235b2c278285d5e75f12823e542be2ca121397ff21b6a2ab004",
+      "duration_seconds": 15.603,
+      "offset": 19000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 21,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 20000
+      },
+      "requested_at_utc": "2026-11-05T16:56:12.518327Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00021.json.gz",
+      "bytes": 4213322,
+      "sha256": "ee7136f9d334aee7577da7edec553cd845c8103a5ef8fcfc8e2215ba4c6584da",
+      "stored_sha256": "d7fb09049bcb7d67d7cf1e1b57175cb4b51be756a11c0c1535e3d91a5806b50e",
+      "duration_seconds": 14.652,
+      "offset": 20000,
+      "rows": 1000,
+      "kind": "main"
+    },
+    {
+      "request_number": 22,
+      "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+      "query": {
+        "plume_gas": "CH4",
+        "status": "published",
+        "instruments": [
+          "tan",
+          "emi"
+        ],
+        "sort": "asc",
+        "limit": 1000,
+        "datetime": "2022-01-01T00:00:00Z/2026-11-05T16:51:44.059908Z",
+        "modified_at": "../2026-11-05T16:51:44.059908Z",
+        "offset": 21000
+      },
+      "requested_at_utc": "2026-11-05T16:56:27.543980Z",
+      "attempt": 1,
+      "status": 200,
+      "file": "response_00022.json.gz",
+      "bytes": 1387001,
+      "sha256": "ddce4aa4881381f89d10f7311840bd72fcdec70df29ec9bce2097d18cc3accc9",
+      "stored_sha256": "1e8561dc6dd686e99b9cce484557dbb799db1c4fe3879548f504d5f46d22646a",
+      "duration_seconds": 11.256,
+      "offset": 21000,
+      "rows": 329,
+      "kind": "main"
+    }
+  ],
+  "source": "Carbon Mapper",
+  "terms": "https://carbonmapper.org/terms",
+  "confirmed_absent": [],
+  "expected_rows": 21329,
+  "rows_archived": 21329,
+  "next_offset": 21329,
+  "main_expected_rows": 21329,
+  "finished_at_utc": "2026-11-05T16:56:38.811800Z",
+  "api_metrics": {
+    "api_requests": 22,
+    "api_failures": 0,
+    "api_retries": 0
+  }
+}

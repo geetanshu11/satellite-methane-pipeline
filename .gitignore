@@ -1,0 +1,24 @@
+.env
+.env.*
+config/local.json
+runtime/
+*_runtime/
+reports/
+*.duckdb
+*.duckdb.wal
+*.parquet
+*.zip
+*.partial
+*.tmp
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+.ipynb_checkpoints/
+*.log
+# archives/ and demo/archive/ are frozen, attributed source inputs kept for reproducibility.
+# New API responses and generated outputs live under the ignored runtime directory.

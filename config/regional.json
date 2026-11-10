@@ -1,0 +1,22 @@
+{
+  "root": "runtime",
+  "start_date": "2025-01-01",
+  "end_date": null,
+  "bbox": [
+    -122.5,
+    36.5,
+    -120.5,
+    38.5
+  ],
+  "instruments": [
+    "tan",
+    "emi"
+  ],
+  "page_size": 250,
+  "max_pages": 100,
+  "overlap_hours": 48,
+  "full_refresh_days": 7,
+  "request_pause": 0.5,
+  "max_map_cells": 500,
+  "max_withdrawal_fraction": 0.25
+}

@@ -1,0 +1,18 @@
+name: methane-study
+services:
+  pipeline:
+    build: .
+    image: satellite-methane:local
+    init: true
+    environment:
+      METHANE_ROOT: /data
+    volumes:
+      - methane-data:/data
+      - ./reports:/reports
+      - ./archives:/archives:ro
+      - ./config:/app/config:ro
+    command: ["--output", "/reports", "replay", "--source", "/archives"]
+    mem_limit: 3g
+    cpus: 2
+volumes:
+  methane-data:

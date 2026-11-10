@@ -1,0 +1,54 @@
+{
+  "leaflet.js": {
+    "url": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js",
+    "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a"
+  },
+  "jquery.js": {
+    "url": "https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js",
+    "sha256": "9261efb3407e3a9096e4654750d8eff6b3a663422f48845c7fbcc65034c340cf"
+  },
+  "cluster.js": {
+    "url": "https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js",
+    "sha256": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508"
+  },
+  "leaflet.css": {
+    "url": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css",
+    "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6"
+  },
+  "cluster.css": {
+    "url": "https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css",
+    "sha256": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87"
+  },
+  "cluster-default.css": {
+    "url": "https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css",
+    "sha256": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170"
+  },
+  "leaflet.license": {
+    "url": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/LICENSE",
+    "sha256": "53e8dc25862014e4324741ca18fbe3611e11d42ef69f59f86ea8c5389647d4cb"
+  },
+  "jquery.license": {
+    "url": "https://cdn.jsdelivr.net/npm/jquery@3.7.1/LICENSE.txt",
+    "sha256": "d4db9ebe6f29f5168eac45ad713f055623ac5d0dcd5ba92da23d650ae012020d"
+  },
+  "cluster.license": {
+    "url": "https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/MIT-LICENCE.txt",
+    "sha256": "3133dacd38250bd1f524d8166cc60a016a382522e062fce143691c65bf5e4b3d"
+  },
+  "layers.png": {
+    "url": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/layers.png",
+    "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6"
+  },
+  "layers-2x.png": {
+    "url": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/layers-2x.png",
+    "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf"
+  },
+  "marker-icon.png": {
+    "url": "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-icon.png",
+    "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437"
+  },
+  "world": {
+    "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson",
+    "sha256": "6866c877d39cba9c357620878839b336d569f8c662d3cfab4cb1dbe2d39c977f"
+  }
+}

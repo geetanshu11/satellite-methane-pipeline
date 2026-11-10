@@ -1,0 +1,34 @@
+[
+  {
+    "scope": "all_published_methane",
+    "query": {
+      "status": "published",
+      "plume_gas": "CH4",
+      "sort": "asc",
+      "limit": 1,
+      "offset": 0
+    },
+    "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+    "retrieved_at_utc": "2026-11-05T16:54:35.089215Z",
+    "bbox_count": 37982,
+    "earliest_observed": "2016-09-10T18:57:02Z"
+  },
+  {
+    "scope": "published_emit_tanager_methane",
+    "query": {
+      "status": "published",
+      "plume_gas": "CH4",
+      "sort": "asc",
+      "limit": 1,
+      "offset": 0,
+      "instruments": [
+        "emi",
+        "tan"
+      ]
+    },
+    "endpoint": "https://api.carbonmapper.org/api/v1/catalog/plumes/annotated",
+    "retrieved_at_utc": "2026-11-05T16:54:40.212894Z",
+    "bbox_count": 21329,
+    "earliest_observed": "2022-08-10T06:49:57Z"
+  }
+]

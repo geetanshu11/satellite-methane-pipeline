@@ -1,0 +1,35 @@
+{
+  "source": "Carbon Mapper",
+  "scope": {
+    "start_date": "2022-01-01",
+    "end_date": null,
+    "bbox": null,
+    "instruments": [
+      "emi",
+      "tan"
+    ],
+    "gas": "CH4",
+    "status": "published",
+    "contract": "2",
+    "h3_resolution": 8
+  },
+  "scope_id": "f4eb34e30f15fa99",
+  "archives": [
+    {
+      "manifest": "archives/20261105T165144059923Z_2ca5122c/manifest.json",
+      "sha256": "6185db90d7f212492e6e7e5ea4d2aeb1dfcc3e0f7118d09622b15e0f492d6f6d",
+      "cutoff_utc": "2026-11-05T16:51:44.059908Z",
+      "mode": "full",
+      "pages": 22,
+      "rows_verified": 21329
+    },
+    {
+      "manifest": "archives/20261105T165646407474Z_6ecd1b98/manifest.json",
+      "sha256": "5dc2cf0e398b9c351ff2ae631780b4d6941cf37e6609f77326e23a0a53c49a2b",
+      "cutoff_utc": "2026-11-05T16:56:46.407462Z",
+      "mode": "incremental",
+      "pages": 1,
+      "rows_verified": 129
+    }
+  ]
+}

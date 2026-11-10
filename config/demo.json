@@ -1,0 +1,1 @@
+{"root":"demo_runtime", "start_date":"2025-01-01", "end_date":"2026-01-01", "bbox":[-122.5,36.5,-120.5,38.5], "instruments":["tan","emi"], "page_size":25, "request_pause":0.5}
