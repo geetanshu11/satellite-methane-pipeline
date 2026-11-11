@@ -1,10 +1,15 @@
-# Satellite Methane Monitoring
+# Satellite Methane Investigation Pipeline
 
 A Python pipeline for exploring published Carbon Mapper methane observations. It archives API responses, cleans them into Parquet, tracks revisions in DuckDB, and uses SQL and H3 to study observation patterns. Methane detection happens upstream; this project processes the published results.
 
 The included historical snapshot has **21,329 EMIT/Tanager observations**, covering **August 10, 2022–October 6, 2026**. It is a selected satellite scope, not the entire Carbon Mapper catalogue. [Findings](docs/FINDINGS.md) · [Source attribution and terms](DATA_NOTICE.md)
 
-![Historical observation report](docs/images/report.png)
+The generated report now leads with **up to five investigation case studies** rather than a crowded
+map. Each case names an H3 cell and gives its exact observation dates, number of independent
+scenes, instruments, provider-attributed sectors, available per-observation rate distribution,
+and explicit caveats. It includes links to all underlying observation records.
+The cases are prioritized **leads for human investigation**, not verified emitting facilities.
+Run the pipeline to generate the current interactive report. No static screenshot is substituted for real outputs.
 
 ## Run on Windows
 
@@ -15,7 +20,11 @@ docker compose run --build --rm pipeline
 Start-Process .\reports\report.html
 ```
 
-This builds one application image, replays the **complete archived dataset**, and creates the report plus CSV/Parquet exports in `reports\`. Run it again to check that the observation and version counts stay at 21,329. No Python installation, credentials, AWS account, or paid service is needed.
+This builds one application image, replays the **complete archived dataset**, and creates the report plus CSV/Parquet exports in `reports\`.
+Open `reports\report.html` and start with the **Evidence-backed investigation cases** section.
+The corresponding evidence is available in `reports\investigations.json`,
+`reports\investigation_summary.csv`, and `reports\investigations\case_*.csv`.
+Run it again to check that the observation and version counts stay at 21,329. No Python installation, credentials, AWS account, or paid service is needed.
 
 The setup fits a Windows 11 laptop with 16 GB RAM and a 6 GB WSL limit. The container is capped at 3 GB and two CPUs; DuckDB uses a 1 GB session limit. Database files persist in the `methane-data` Docker volume. Building images requires internet. Historical replay, tests and the self-contained maps/charts work offline afterward.
 
@@ -48,7 +57,7 @@ flowchart TD
     W --> R[Charts, map and exports]
 ```
 
-Eight core modules keep the steps separate:
+Nine focused modules keep the steps separate:
 
 | File | Responsibility |
 |---|---|
@@ -57,6 +66,7 @@ Eight core modules keep the steps separate:
 | `warehouse.py` | Parquet loading, revision updates and SQL transformations |
 | `pipeline.py` | Batch ordering, transactions, quality gates and replay |
 | `reporting.py` | CSV/Parquet exports, Plotly charts and the offline Folium map |
+| `investigations.py` | Deterministic H3 candidate selection, per-date evidence and case data |
 | `config.py`, `common.py`, `cli.py` | Dataset settings, file/lock helpers and the four commands |
 
 The **watermark** is the start time of the last successful live collection. Each incremental request overlaps it by 48 hours. Pagination checks filtered counts, offsets and duplicate UUIDs; incomplete responses fail the batch. A failed download restarts from page zero on the next attempt.
@@ -113,7 +123,7 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python -m methane replay
 ```
 
-Verified here: **108 offline tests passed**, including the complete 21,329-row snapshot, revisions, withdrawals, failed transactions and a writer killed before commit. Ruff lint/format and dependency checks passed. Separate old/new historical replays matched all 24 fact columns and every version hash. Offline Chromium rendered both charts, 500 map markers and a popup without external requests. A live regional full/incremental check also passed. Docker Compose configuration validated; **container execution, native Windows execution and hosted GitHub Actions were not available here**.
+The original version passed **108 offline tests**, including the complete 21,329-row snapshot, revisions, withdrawals, failed transactions and a writer killed before commit. **Five additional focused investigation tests passed** during this upgrade; the full revised Docker suite still needs to run. Ruff lint/format and dependency checks passed. Separate old/new historical replays matched all 24 fact columns and every version hash. Offline Chromium rendered both charts, 500 map markers and a popup without external requests. A live regional full/incremental check also passed. Docker Compose configuration validated in that original build. **The investigation-report upgrade adds focused tests; rerun the full suite and container workflow before publishing this revision.**
 
 Press **Ctrl+C** to interrupt a batch and rerun the same command to resume from committed state. The process lock releases when it exits. `docker compose down` keeps the data volume. Keep the database and its journal together.
 
@@ -131,18 +141,42 @@ For the optional 42-observation California fixture:
 docker compose run --rm pipeline --config config/demo.json --output /reports/demo replay --source demo/archive
 ```
 
-## Publish to GitHub
+## Updating an existing GitHub checkout
 
-The repository includes frozen historical inputs in `archives/` (about 36 MB), source manifests, SQL, tests, configuration, and a GitHub Actions workflow. New downloads, databases, exports, local settings and credentials are ignored. Create an empty repository on GitHub, then run:
+The repository includes frozen historical inputs in `archives/` (about 36 MB), source manifests, SQL,
+tests, configuration, and a GitHub Actions workflow. New downloads, databases, exports, local settings
+and credentials are ignored. **Validate the report and tests locally before publishing this upgrade.**
+
+For an already connected Git repository, extract the upgrade over your existing project folder,
+keeping its `.git` directory. After rebuilding Docker and reviewing the new report, run:
 
 ```powershell
-git init -b main
-git add .
 git status --short
-git commit -m "Add satellite methane data pipeline"
-$remote = Read-Host "Paste your own empty repository's HTTPS URL"
-git remote add origin $remote
-git push -u origin main
+git add -A
+git diff --cached --check
+git commit -m "Add evidence-backed methane investigation case studies"
+git push origin main
 ```
 
-If Git asks for your identity, set `git config user.name "Your name"` and `git config user.email "Your email"`, then retry. Sign in when Git prompts you. No repository has been published as part of this delivery.
+For a fresh, unconnected folder, initialize it and add your remote first. The repository history is
+not stored inside this ZIP.
+
+If Git asks for an identity, copy your repository-local name and email from your Aircraft project.
+
+## How to use the investigation results
+
+Treat each case as a **follow-up lead**, not proof of a leaking facility:
+
+1. Review the candidate's distinct *eligible* observation dates, rate values and quality flags.
+2. Open its CSV to inspect individual UUIDs, sensor, scene, location, source-page reference and dates.
+3. Compare the evidence with independent facility inventories, imagery and the number of usable satellite observations before making an attribution.
+
+Candidate selection is deterministic: cells must have eligible observations on at least two distinct UTC dates;
+rank by number of distinct eligible dates and then by largest eligible reported rate; keep candidates
+at least 10 km apart by their cell centers to reduce redundant neighboring leads. No measured emission
+rate is extrapolated across time. Case counts are not unique facility counts, detection probabilities,
+or annual greenhouse-gas emissions. No observation-quality ratings were supplied for the archived
+21,329-row snapshot, so findings are **provisional**.
+
+If you change the source data, regenerate the report. The results, CSVs and case count will reflect
+the current committed warehouse and may differ from the historical findings.

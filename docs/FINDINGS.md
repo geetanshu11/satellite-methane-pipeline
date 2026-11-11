@@ -21,6 +21,36 @@ The historical load collected **21,329 published methane observations** from EMI
 
 **Missingness.** 16,850 observations had a positive visible rate eligible for the review queue. Missing ratings remain provisional. Rates describe individual observations in kg/hr. The catalogue alone cannot establish annual emissions, regulatory violations or verified reductions.
 
+## Concrete investigation outcome (updated analysis)
+
+**Question:** Which areas have positive-rate methane observations on multiple distinct dates,
+and what is the exact evidence supporting closer investigation?
+
+The HTML report now produces **up to five evidence dossiers**: not just counts and pins,
+but the dated records, number of source scenes, instruments, provider-attributed sectors,
+observed rate range/median, missingness and direct CSV exports of the underlying provider UUIDs.
+It also supplies an offline JSON file of all dates to support independent review.
+
+An existing historical example is H3 cell `882cc56cbdfffff` near **37.927° N,
+53.922° E**. The source analysis reports **48 published observations on 25 UTC dates**,
+including positive-rate observations on **18 distinct dates**. This is a concrete reason to
+investigate that *area*; the cell can include multiple sites, and no inference is made that
+one facility leaked continuously. Dates, emitted-rate values and attribution require
+case-level checking against the actual exported observation records.
+
+The case selection is reproducible and uses current warehouse facts rather than hard-coded
+case IDs. The selection first sorts eligible detection dates and observed rate, then uses a
+10 km center separation heuristic so the five highlighted cases are not simply neighboring
+H3 cells. The original worldwide archive contains no changed observation versions, so
+revision behavior is evidenced by synthetic tests, not historical revision counts.
+
+**Research decision enabled:** choose *where to seek corroborating evidence first* (imagery,
+scene/overpass coverage, facility inventories, site inspections), based on recorded dated
+satellite observations. It does not identify a culpable facility or quantify annual emissions.
+
+To see the current evidence, run the README's historical replay and open
+`reports/report.html`, `reports/investigations.json`, and the case CSV files.
+
 ## Reproducing the result
 
 The two frozen archives contain a full capture from November 5, 2026 (22 pages, 21,329 observations) and an overlapping incremental capture (129 records). This refactor replayed both archives offline, then repeated the delta. Current observations and distinct versions stayed at **21,329**; the repeated delta added, updated and retired **zero** records.

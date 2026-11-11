@@ -6,6 +6,7 @@ from .warehouse import open_warehouse
 from .common import project_lock
 import pandas as pd
 from .common import write_json, CONTRACT_VERSION
+from .investigations import build_investigations, render_investigation_html
 
 
 def generate_report(cfg, output="reports"):
@@ -53,6 +54,26 @@ def export_products(con, cfg, directory, metrics):
     sectors = frames["mart_sectors"].sort_values("observations", ascending=False)
     queue = frames["mart_review_queue"].sort_values("review_order")
     locations = frames["mart_locations"].merge(frames["dim_location"], on="h3_cell", validate="one_to_one")
+    cases = build_investigations(observations, locations, frames["dim_sector"])
+    # Full source rows and day-level evidence remain inspectable outside the HTML.
+    case_dir = directory / "investigations"
+    case_dir.mkdir(exist_ok=True)
+    case_summaries = []
+    for case in cases:
+        filename = f"case_{case['rank']:02d}_{case['h3_cell']}.csv"
+        case["records"].to_csv(case_dir / filename, index=False)
+        external = {key: value for key, value in case.items() if key != "records"}
+        external["records_file"] = f"investigations/{filename}"
+        case_summaries.append(external)
+    write_json(directory / "investigations.json", case_summaries)
+    if case_summaries:
+        pd.DataFrame(
+            [{k: v for k, v in case.items() if k not in {"daily", "instruments", "sectors"}} for case in case_summaries]
+        ).to_csv(directory / "investigation_summary.csv", index=False)
+    else:
+        pd.DataFrame(columns=["rank", "h3_cell", "eligible_dates"]).to_csv(
+            directory / "investigation_summary.csv", index=False
+        )
     plotted = locations.sort_values(
         ["eligible_observation_days", "peak_observed_rate_kg_hr", "h3_cell"],
         ascending=[False, False, True],
@@ -95,6 +116,17 @@ def export_products(con, cfg, directory, metrics):
             fill_opacity=0.75,
             popup=folium.Popup(popup, max_width=320),
         ).add_to(cluster)
+    # Make the reviewed evidence locations obvious, not lost among hundreds of map points.
+    for case in cases:
+        folium.CircleMarker(
+            [case["latitude"], case["longitude"]],
+            radius=11,
+            color="#bd1e40",
+            weight=3,
+            fill=False,
+            tooltip=f"Investigation {case['rank']}: {case['eligible_dates']} eligible dates",
+            popup=f"Case {case['rank']}: H3 cell {html.escape(case['h3_cell'])}",
+        ).add_to(m)
     folium.LayerControl().add_to(m)
     css = (assets / "map.css").read_text(encoding="utf-8")
     js = (assets / "map.js").read_text(encoding="utf-8")
@@ -134,6 +166,7 @@ def export_products(con, cfg, directory, metrics):
         "unrated_observations": int((observations.plume_quality == "not_supplied").sum()),
         "missing_rate_observations": int(observations.emission_rate_kg_hr.isna().sum()),
         "missing_uncertainty_observations": int(observations.uncertainty_kg_hr.isna().sum()),
+        "investigation_cases": len(cases),
         "source": "Carbon Mapper",
         "scope": cfg.scope,
     }
@@ -161,9 +194,10 @@ def export_products(con, cfg, directory, metrics):
         "Sectors",
     ]
     table_html = view.to_html(index=False, escape=True, float_format=lambda x: f"{x:,.1f}")
+    case_html = render_investigation_html(cases)
     map_src = html.escape(map_document, quote=True)
     document = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1"><title>Satellite Methane Monitoring</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"><title>Satellite Methane Investigation Report</title>
     <style>body{{margin:0;background:#f4f7fa;color:#172b3a;font:16px/1.55 Arial,sans-serif}}
     main{{max-width:1180px;margin:auto;padding:32px}}header{{background:#103d48;color:white;padding:32px;border-radius:16px}}
     h1{{font-size:34px;margin:4px 0}}h2{{font-size:23px}}.eyebrow{{letter-spacing:.15em;font-size:12px}}
@@ -172,8 +206,12 @@ def export_products(con, cfg, directory, metrics):
     .muted{{color:#526574;font-size:14px}}.note{{border-left:4px solid #d97706;padding:14px;background:#fff7e8}}
     iframe{{width:100%;height:530px;border:0}}.table-scroll{{overflow-x:auto}}table{{border-collapse:collapse;width:100%;font-size:13px}}
     th,td{{padding:10px;text-align:left;border-bottom:1px solid #e2e8f0}}th{{background:#eaf3f5}}a{{color:#087f8c}}
+    .case{{border:1px solid #d2e0e5;border-radius:12px;padding:18px;margin:16px 0}}
+    .case h3{{font-size:18px;margin:0 0 10px}}.case small{{color:#526574;font-size:12px}}
+    .case p{{margin:10px 0}}.case .lead{{background:#f0f7f9;padding:12px;border-radius:8px}}
+    details{{margin:12px 0}}summary{{font-weight:bold;cursor:pointer}}
     </style></head><body><main><header><div class="eyebrow">ENVIRONMENTAL DATA ENGINEERING</div>
-    <h1>Satellite Methane Monitoring</h1><p>Published methane observations, revision history, and a spatial review queue.</p>
+    <h1>Satellite Methane Investigation Leads</h1><p>Published methane observations, revision history, and a spatial review queue.</p>
     <div>Source: Carbon Mapper · Input archive cutoff {html.escape(metrics["cutoff_utc"])}</div></header>
     <div class="cards"><div class="card">Observations<div class="number">{len(observations):,}</div></div>
     <div class="card">Occupied grid cells<div class="number">{len(locations):,}</div></div>
@@ -181,7 +219,16 @@ def export_products(con, cfg, directory, metrics):
     <div class="card">Unrated observations<div class="number">{summary["unrated_observations"]:,}</div></div></div>
     <p class="note">This is a screening tool for published satellite detections. A grid cell is not a verified facility.
     Rates describe individual observations; they are not annual emissions. No detection can also mean no suitable observation.</p>
-    <section><h2>Locations to investigate</h2><p class="muted">Showing {len(plotted):,} of {len(locations):,} occupied H3 cells at resolution {cfg.h3_resolution}.
+    <section id="investigations"><h2>Evidence-backed investigation cases (up to five)</h2>
+    <p class="muted">We select up to five cells with observations on at least two distinct
+    <em>eligible</em> UTC dates, ranked by eligible dates then peak reported rate.
+    We space cases at least 10 km apart to avoid showing adjacent cells as separate leads.
+    These are geographic screening leads, not verified leaking facilities. Source quality
+    ratings marked not supplied remain provisional.</p>
+    <p><a href="investigation_summary.csv">Download case summary</a> ·
+    <a href="investigations.json">Download all case dates and criteria (JSON)</a>.</p>
+    {case_html}</section>
+    <section><h2>World map and geographic context</h2><p class="muted">Showing {len(plotted):,} of {len(locations):,} occupied H3 cells at resolution {cfg.h3_resolution}.
     Amber means detections on at least two eligible dates; teal means a single eligible date; gray has no eligible rate.
     Zoom in on a numbered cluster to inspect individual cells. The world outline comes from Natural Earth. All cells are included in the exports.</p>
     <iframe title="Satellite observation map" srcdoc="{map_src}"></iframe></section>

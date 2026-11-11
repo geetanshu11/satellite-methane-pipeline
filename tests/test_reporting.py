@@ -25,7 +25,18 @@ def test_real_archive_replay_twice_and_offline_report(tmp_path):
     assert len(pd.read_parquet(output / "fact_observations.parquet")) == 42
     summary = json.loads((output / "summary.json").read_text(encoding="utf-8"))
     assert summary["current_observations"] == 42 and summary["unrated_observations"] == 42
+    assert "investigation_cases" in summary
+    cases = json.loads((output / "investigations.json").read_text(encoding="utf-8"))
+    assert len(cases) == summary["investigation_cases"]
+    assert (output / "investigation_summary.csv").is_file()
+    for case in cases:
+        assert case["eligible_dates"] >= 2
+        assert (output / case["records_file"]).is_file()
+        evidence = pd.read_csv(output / case["records_file"])
+        assert len(evidence) == case["observation_count"]
+        assert evidence["observation_id"].is_unique
     document = path.read_text(encoding="utf-8")
+    assert "Evidence-backed investigation cases" in document
     assert "Plotly.newPlot" in document and "srcdoc=" in document and "Carbon Mapper" in document
     assert '<script src="http' not in document and '<link href="http' not in document
     with open_warehouse(cfg.db_path, True) as con:
