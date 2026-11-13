@@ -4,13 +4,31 @@ A Python pipeline for exploring published Carbon Mapper methane observations. It
 
 The included historical snapshot has **21,329 EMIT/Tanager observations**, covering **August 10, 2022–October 6, 2026**. It is a selected satellite scope, not the entire Carbon Mapper catalogue. [Findings](docs/FINDINGS.md) · [Source attribution and terms](DATA_NOTICE.md)
 
+## What this project found
+
+Processed 21,329 published methane observations and identified
+2,814 geographic grid cells with eligible observations on
+multiple dates.
+
+The pipeline produces five evidence-backed investigation cases.
+
+For example, H3 cell 882cc56cbdfffff, near 37.927° N,
+53.922° E, recorded 48 observations across 25 distinct dates,
+including 18 dates with eligible emission-rate measurements.
+
+This makes the area worth further investigation, but does
+not prove a continuous leak or identify a specific facility.
+
+![Investigation report](docs/images/investigation-report.png)
+
+[Read the detailed findings](docs/FINDINGS.md)
+
 The generated report now leads with **up to five investigation case studies** rather than a crowded
 map. Each case names an H3 cell and gives its exact observation dates, number of independent
 scenes, instruments, provider-attributed sectors, available per-observation rate distribution,
 and explicit caveats. It includes links to all underlying observation records.
 The cases are prioritized **leads for human investigation**, not verified emitting facilities.
-Run the pipeline to generate the current interactive report. No static screenshot is substituted for real outputs.
-
+Run the pipeline to generate the current interactive report.The screenshot above previews the generated report; the interactive version can be reproduced locally.
 ## Run on Windows
 
 Start Docker Desktop with Linux containers. Extract this ZIP, open the folder containing `compose.yaml`, and open PowerShell there. Run:
@@ -123,7 +141,14 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python -m methane replay
 ```
 
-The original version passed **108 offline tests**, including the complete 21,329-row snapshot, revisions, withdrawals, failed transactions and a writer killed before commit. **Five additional focused investigation tests passed** during this upgrade; the full revised Docker suite still needs to run. Ruff lint/format and dependency checks passed. Separate old/new historical replays matched all 24 fact columns and every version hash. Offline Chromium rendered both charts, 500 map markers and a popup without external requests. A live regional full/incremental check also passed. Docker Compose configuration validated in that original build. **The investigation-report upgrade adds focused tests; rerun the full suite and container workflow before publishing this revision.**
+The updated project passed 113 local automated tests,
+Ruff linting and formatting checks, and GitHub Actions CI.
+
+Historical replay processed 21,329 observations. A separate
+live regional API run ingested 90 observations, followed
+by a successful incremental run with no new or updated
+records. Revision and withdrawal scenarios are covered
+by automated tests.
 
 Press **Ctrl+C** to interrupt a batch and rerun the same command to resume from committed state. The process lock releases when it exits. `docker compose down` keeps the data volume. Keep the database and its journal together.
 

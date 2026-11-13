@@ -53,7 +53,7 @@ To see the current evidence, run the README's historical replay and open
 
 ## Reproducing the result
 
-The two frozen archives contain a full capture from November 5, 2026 (22 pages, 21,329 observations) and an overlapping incremental capture (129 records). This refactor replayed both archives offline, then repeated the delta. Current observations and distinct versions stayed at **21,329**; the repeated delta added, updated and retired **zero** records.
+The two frozen archives contain a full capture from November 5, 2026 (22 pages, 21,329 observations) and an overlapping incremental capture (129 records). The pipeline replayed both archives offline, then repeated the delta. Current observations and distinct versions stayed at **21,329**; the repeated delta added, updated and retired **zero** records.
 
 The original and simplified implementations were each run against the same archives in separate databases. **All 24 fact columns and every UUID/version-hash pair matched.** Page checksums and archive manifest hashes were verified. The SQL queries below were executed against the resulting warehouse. Both charts and the map are generated from these tables.
 
